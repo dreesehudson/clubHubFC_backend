@@ -27,4 +27,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password',
     ];
+
+    protected $table = 'users';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    public $timestamps = true;
+
+    public function Player () {
+        return $this->User::hasMany('Players');
+    }
+
+    public function Coach () {
+        return $this->User::hasOne('Coaches');
+    }
 }
