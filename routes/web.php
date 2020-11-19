@@ -19,7 +19,7 @@ $router->get('/', function () use ($router) {
 
 //create each object type
 $router->post('/register','UsersController@register');
-$router->post('/User', 'UserController@create');
+$router->post('/User', 'UsersController@create');
 
 
 //get list of each object type

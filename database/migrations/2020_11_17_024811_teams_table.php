@@ -21,7 +21,7 @@ class TeamsTable extends Migration
                   //->string('age_group')
                   //->string('gender')
             $table->string('practice_night');
-            $table->integer('curr_roster_size');
+            $table->integer('curr_roster_size')->default(0);
             $table->integer('max_roster_size');
             $table->timestamps();
         });
