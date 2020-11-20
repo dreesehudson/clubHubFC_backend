@@ -19,7 +19,6 @@ $router->get('/', function () use ($router) {
 
 //create each object type
 $router->post('/register','UsersController@register');
-$router->post('/logIn','UsersController@logIn');
 $router->post('/User', 'UsersController@create');
 $router->post('/PlayerRegistration', 'PlayerController@create');
 
