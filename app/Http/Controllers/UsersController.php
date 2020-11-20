@@ -10,7 +10,7 @@ class UsersController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required'
         ]);
         if($validator->fails()){

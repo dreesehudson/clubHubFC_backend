@@ -24,26 +24,26 @@ $router->post('/PlayerRegistration', 'PlayerController@create');
 
 
 //get list of each object type
-$router->get('/Users', 'UsersController@index');
-$router->get('/Players', 'PlayerController@index');
-$router->get('/Teams', 'TeamController@index');
+$router->get('/getUsers', 'UsersController@index');
+$router->get('/getPlayers', 'PlayerController@index');
+$router->get('/getTeams', 'TeamController@index');
 
 
 //get a single entry of each object type
-$router->get('/Users/{id}', 'UsersController@show');
-$router->get('/Players/{id}', 'PlayerController@show');
-$router->get('/Teams/{id}', 'TeamController@show');
+$router->get('/getUsers/{id}', 'UsersController@show');
+$router->get('/getPlayers/{id}', 'PlayerController@show');
+$router->get('/getTeams/{id}', 'TeamController@show');
 
 
 //store the edit of a single entry of each object type
-$router->put('/Users/{id}', 'UsersController@update');
-$router->put('/Players/{id}', 'PlayerController@update');
-$router->put('/Teams/{id}', 'TeamController@update');
+$router->put('/editUsers/{id}', 'UsersController@update');
+$router->put('/editPlayers/{id}', 'PlayerController@update');
+$router->put('/editTeams/{id}', 'TeamController@update');
 
 
 //delete single entry of each object type
-$router->delete('/Users/{id}', '   UsersController@destroy');
-$router->delete('/Players/{id}', '   PlayerController@destroy');
-$router->delete('/Teams/{id}', '   TeamController@destroy');
+$router->delete('/deleteUsers/{id}', 'UsersController@destroy');
+$router->delete('/deletePlayers/{id}', 'PlayerController@destroy');
+$router->delete('/deleteTeams/{id}', 'TeamController@destroy');
 
 
