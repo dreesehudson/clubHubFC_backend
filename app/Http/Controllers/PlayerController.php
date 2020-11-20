@@ -26,7 +26,7 @@ class PlayerController extends Controller
         //$player-> age = request('age');
         //$player-> gender = request('gender');
         $player-> ref_team_id = request('ref_team_id');
-        $player-> ref_user_id = require('ref_user_id');
+        $player-> ref_user_id = request('ref_user_id');
         $player->save();
     }
 
@@ -57,7 +57,6 @@ class PlayerController extends Controller
         $player-> ref_team_id = request('ref_team_id');
         $player-> ref_user_id = require('ref_user_id');
         $player->save();
-
 
     }
 
