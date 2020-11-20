@@ -22,7 +22,8 @@ class PlayerController extends Controller
     public function create(Request $request)
     {
         $player = new Player;
-        $player-> name = request('name');
+        $player-> first_name = request('first_name');
+        $player-> last_name = request('last_name');
         //$player-> age = request('age');
         //$player-> gender = request('gender');
         $player-> ref_team_id = request('ref_team_id');

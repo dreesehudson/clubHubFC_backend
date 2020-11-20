@@ -25,6 +25,12 @@ class UsersController extends Controller
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
     }  
 
+    public function logIn(Request $request)
+    {
+        return ('logIn function on backend server');
+    }
+
+
         /**
      * Display a listing of the resource.
      *
