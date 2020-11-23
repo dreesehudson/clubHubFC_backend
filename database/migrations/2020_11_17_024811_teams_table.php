@@ -18,8 +18,8 @@ class TeamsTable extends Migration
             $table->string('name');
             $table->string('color');
                   //next iteration breaks will make multiple leagues to distinguish age and gender
-                  //->string('age_group')
-                  //->string('gender')
+            $table->string('age_group');
+            $table->string('gender');
             $table->string('practice_night');
             $table->integer('curr_roster_size')->default(0);
             $table->integer('max_roster_size');
