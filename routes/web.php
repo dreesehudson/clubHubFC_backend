@@ -24,7 +24,10 @@ $router->post('/User', 'UsersController@create');
 $router->group(['middleware' => 'auth'], function() use ($router) {
     //authenticated user routes
     $router->post('/PlayerRegistration', 'PlayerController@create');
+
     $router->get('/getTeams', 'TeamController@index');
+
+    $router->get('/getCurrentUser', 'UserController@getCurrentUser');
     
     //admin only
     $router->get('/getUsers/{id}', 'UsersController@show');
