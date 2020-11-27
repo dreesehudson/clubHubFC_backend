@@ -18,7 +18,7 @@ class ScheduleTable extends Migration
             $table->string('type');
             $table->date('date');
             $table->unsignedBigInteger('ref_home_team_id');
-            $table->unsignedBigInteger('ref_away_team_id');
+            $table->unsignedBigInteger('ref_away_team_id')->nullable();
             $table->string('time');
             $table->timestamps();
 

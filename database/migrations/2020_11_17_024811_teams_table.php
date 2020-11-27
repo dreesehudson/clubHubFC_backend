@@ -16,6 +16,7 @@ class TeamsTable extends Migration
         Schema::create('teams', function(Blueprint $table){
             $table->id();
             $table->string('name');
+            $table->string('coach');
             $table->string('color');
                   //next iteration breaks will make multiple leagues to distinguish age and gender
             $table->string('age_group');

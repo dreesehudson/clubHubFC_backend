@@ -23,10 +23,13 @@ class TeamController extends Controller
     {
         $team = new Team;
         $team-> name = request('name');
+        $team-> coach = request('coach')->nullable();
         $team-> color = request('color');
-        //$team-> age_group = request('age_group');
-        //$team-> gender = request('gender');
+        $team-> age_group = request('age_group')->nullable();
+        $team-> gender = request('gender')->nullable();
         $team-> practice_night = request('practice_night');
+        $team-> curr_roster_size = request('curr_roster_size')->nullable();
+        $team-> max_roster_size = request('max_roster_size')->nullable();
         $team->save();
     }
 
@@ -52,10 +55,13 @@ class TeamController extends Controller
     {
         $team = Team::find('$id');
         $team-> name = request('name');
+        $team-> coach = request('coach')->nullable();
         $team-> color = request('color');
-        //$team-> age_group = request('age_group');
-        //$team-> gender = request('gender');
+        $team-> age_group = request('age_group')->nullable();
+        $team-> gender = request('gender')->nullable();
         $team-> practice_night = request('practice_night');
+        $team-> curr_roster_size = request('curr_roster_size')->nullable();
+        $team-> max_roster_size = request('max_roster_size')->nullable();
 
         $team->save();
 
