@@ -32,7 +32,10 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
     $router->get('/getPlayers', 'PlayerController@index');
     $router->get('/getSchedules', 'ScheduleController@index');
     //Current Objective
-    $router->get('/getUserByEmail', 'UsersController@showByEmail');
+    $router->get('/api/user', function(Request $request) {
+        $user = $request->user();
+        return $user->toArray();
+    });
     //Next
     $router->post('/createTeam', 'TeamController@create');
 
@@ -43,7 +46,6 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
     $router->delete('/deleteUsers/{id}', 'UsersController@destroy');
     $router->delete('/deletePlayers/{id}', 'PlayerController@destroy');
     $router->delete('/deleteTeams/{id}', 'TeamController@destroy');
-
 });
 
 

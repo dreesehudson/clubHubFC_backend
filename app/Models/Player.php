@@ -13,13 +13,11 @@ class Player extends Model
     public $incrementing = true;
     public $timestamps = true;
 
-    public function User () {
-        return $this->Player::belongsTo('User');
+    public function user () {
+        return $this->belongsTo('App\Models\User', 'ref_user_id');
     }
 
-    public function Team () {
-        return $this->Player::belongsTo('Team');
-    }
-
-    
+    public function team () {
+        return $this->belongsTo('App\Models\Team', 'ref_team_id');
+    }   
 }
