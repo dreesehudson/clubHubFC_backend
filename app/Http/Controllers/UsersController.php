@@ -22,14 +22,10 @@ class UsersController extends Controller
         /**Take note of this: Your user authentication access token is generated here **/
         $data['token'] =  $user->createToken('MyApp')->accessToken;
         $data['name'] =  $user->name;
+        //$data['email'] =  $user->email;
+        //$data['user_data'] = $userData = User::with("relationshipA");
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
     }  
-
-    public function logIn(Request $request)
-    {
-        return ('logIn function on backend server');
-    }
-
 
         /**
      * Display a listing of the resource.
@@ -65,9 +61,20 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $id)
+    public function show($id)
     {
-        return User::find($id);
+        return (User::find($id));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function showByEmail($email)
+    {
+        return (User::find($email));
     }
 
     /**
@@ -77,7 +84,7 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $id)
+    public function update(Request $request, $id)
     {
         $user = User::find('$id');
         $user-> name = request('name');

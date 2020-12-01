@@ -11,7 +11,7 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        return Player::all();
+        return Player::with(['team', 'user'])->get();
     }
 
     /**
@@ -24,8 +24,6 @@ class PlayerController extends Controller
         $player = new Player;
         $player-> first_name = request('first_name');
         $player-> last_name = request('last_name');
-        //$player-> age = request('age');
-        //$player-> gender = request('gender');
         $player-> ref_team_id = request('ref_team_id');
         $player-> ref_user_id = request('ref_user_id');
         $player->save();
@@ -39,7 +37,8 @@ class PlayerController extends Controller
      */
     public function show(Player $id)
     {
-        return Player::find($id);
+        return (Player::find($id));
+        
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Team;
-class TeamController extends Controller
+use App\Models\Schedule;
+class ScheduleController extends Controller
 {
         /**
      * Display a listing of the resource.
@@ -11,7 +11,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return Team::all();
+        return Schedule::all();
     }
 
     /**
@@ -21,39 +21,36 @@ class TeamController extends Controller
      */
     public function create(Request $request)
     {
-        $team = new Team;
-        $team-> name = request('name');
-        $team-> color = request('color');
-        $team-> practice_night = request('practice_night');
-        $team->save();
+        $Schedule = new Schedule;
+        $Schedule-> name = request('name');
+        $Schedule->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Team  $team
+     * @param  \App\Schedule  $Schedule
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $id)
+    public function show(Schedule $id)
     {
-        return Team::find($id);
+        return Schedule::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Team  $team
+     * @param  \App\Schedule  $Schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Team $id)
+    public function update(Request $request, Schedule $id)
     {
-        $team = Team::find('$id');
-        $team-> name = request('name');
-        $team-> color = request('color');
-        $team-> practice_night = request('practice_night');
+        $schedule = Schedule::find('$id');
+        $schedule-> name = request('name');
 
-        $team->save();
+
+        $schedule->save();
 
 
     }
@@ -61,11 +58,11 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Team  $team
+     * @param  \App\Schedule  $Schedule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Team $team)
+    public function destroy(Schedule $schedule)
     {
-        Team::find($team->id)->delete();
+        Schedule::find($schedule->id)->delete();
     }
 }
