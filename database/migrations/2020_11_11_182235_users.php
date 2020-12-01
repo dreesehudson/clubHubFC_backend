@@ -18,7 +18,7 @@ class Users extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->boolean('isAdmin')->default(0);
+            $table->boolean('isAdmin')->default(false);
             $table->timestamp('last_logged_in')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();

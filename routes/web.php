@@ -20,6 +20,7 @@ $router->get('/', function () use ($router) {
 //create each object type
 $router->post('/register','UsersController@register');
 $router->post('/User', 'UsersController@create');
+$router->get('/getTeams', 'TeamController@index');
 
 use Illuminate\Http\Request;
 
@@ -28,7 +29,6 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
     //Working
     $router->get('/getUsers', 'UsersController@index');
     $router->post('/PlayerRegistration', 'PlayerController@create');
-    $router->get('/getTeams', 'TeamController@index');
     $router->get('/getPlayers', 'PlayerController@index');
     $router->get('/getSchedules', 'ScheduleController@index');
     //Current Objective
