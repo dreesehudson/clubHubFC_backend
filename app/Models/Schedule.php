@@ -9,17 +9,17 @@ class Schedule extends Model
 {
     use HasFactory;
 
-    //protected $with = ['HomeTeam', 'AwayTeam'];
+    protected $with = ['HomeTeam', 'AwayTeam'];
 
     protected $table = 'Schedule';
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
 
-    // public function HomeTeam () {
-    //     return $this->belongsToMany('App\Models\Team', 'ref_home_team_id');
-    // }
-    // public function AwayTeam () {
-    //     return $this->belongsToMany('App\Models\Team', 'ref_away_team_id');
-    // }
+    public function HomeTeam () {
+        return $this->belongsToMany('App\Models\Team', 'ref_home_team_id');
+    }
+    public function AwayTeam () {
+        return $this->belongsToMany('App\Models\Team', 'ref_away_team_id');
+    }
 }
