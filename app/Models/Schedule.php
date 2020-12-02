@@ -17,9 +17,9 @@ class Schedule extends Model
     public $timestamps = true;
 
     public function HomeTeam () {
-        return $this->belongsToMany('App\Models\Team', 'ref_home_team_id');
+        return $this->belongsToMany('App\Models\Team', 'ref_team_id');
     }
     public function AwayTeam () {
-        return $this->belongsToMany('App\Models\Team', 'ref_away_team_id');
+        return $this->belongsToMany('App\Models\Team', 'ref_team_id');
     }
 }

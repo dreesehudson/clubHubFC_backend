@@ -38,7 +38,7 @@ class PlayerController extends Controller
     public function show(Player $id)
     {
         return (Player::find($id));
-        
+
     }
 
     /**
@@ -52,8 +52,6 @@ class PlayerController extends Controller
     {
         $player = Player::find('$id');
         $player-> name = request('name');
-        //$player-> age = request('age');
-        //$player-> gender = request('gender');
         $player-> ref_team_id = request('ref_team_id');
         $player-> ref_user_id = require('ref_user_id');
         $player->save();
@@ -66,8 +64,8 @@ class PlayerController extends Controller
      * @param  \App\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Player $player)
+    public function destroy($id)
     {
-        Player::find($player->id)->delete();
+        Player::find($id)->delete();
     }
 }

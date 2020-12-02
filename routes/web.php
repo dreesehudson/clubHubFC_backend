@@ -28,7 +28,7 @@ $router->get('/getSchedules', 'ScheduleController@index');
 use Illuminate\Http\Request;
 
 $router->group(['middleware' => 'auth'], function() use ($router) {
-
+    
     //Working
     $router->post('/PlayerRegistration', 'PlayerController@create');
     $router->get('/getPlayer/{id}', 'PlayerController@show');
@@ -37,16 +37,17 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
         return $user->toArray();
     });
     $router->post('/createTeam', 'TeamController@create');
-    //Current Objective
     
     //Next
     $router->put('/editUsers/{id}', 'UsersController@update');
     $router->put('/editPlayers/{id}', 'PlayerController@update');
     $router->put('/editTeams/{id}', 'TeamController@update');
-
-    $router->delete('/deleteUsers/{id}', 'UsersController@destroy');
-    $router->delete('/deletePlayers/{id}', 'PlayerController@destroy');
-    $router->delete('/deleteTeams/{id}', 'TeamController@destroy');
+    $router->put('/editMatch/{id}', 'ScheduleController@update');
+    
+    $router->delete('/deleteUser/{id}', 'UsersController@destroy');
+    $router->delete('/deletePlayer/{id}', 'PlayerController@destroy');
+    $router->delete('/deleteTeam/{id}', 'TeamController@destroy');
+    $router->delete('/deleteMatch/{id}', 'ScheduleController@destroy');
 });
 
 
