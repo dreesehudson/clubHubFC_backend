@@ -24,8 +24,8 @@ class PlayerController extends Controller
         $player = new Player;
         $player-> first_name = request('first_name');
         $player-> last_name = request('last_name');
-        $player-> ref_team_id = request('ref_team_id');
-        $player-> ref_user_id = request('ref_user_id');
+        $player-> team_id = request('team_id');
+        $player-> user_id = request('user_id');
         $player->save();
     }
 
@@ -53,8 +53,8 @@ class PlayerController extends Controller
             ['id'=> request('id')],
             ['first_name' => request('first_name'),
             'last_name' => request('last_name'),        
-            'ref_team_id' => request('ref_team_id'),
-            'ref_user_id' => request('ref_user_id')]
+            'team_id' => request('team_id'),
+            'user_id' => request('user_id')]
         );
     }
 
@@ -71,10 +71,8 @@ class PlayerController extends Controller
 
     public function getPlayerGames($player_id){
 
-        $player = Player::table('players')
-                            ->whereIn('id', $player_id)
-                            ->get();
-            dd($player);
+        $player = Player::where('id', $player_id)->get();
+            //dd($player);
     }
 
     // playerList

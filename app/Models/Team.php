@@ -18,6 +18,6 @@ class Team extends Model
     public $timestamps = true;
 
     public function players () {
-        return $this->hasMany('App\Models\Player', 'ref_team_id');
+        return $this->hasMany('App\Models\Player', 'team_id');
     }
 }

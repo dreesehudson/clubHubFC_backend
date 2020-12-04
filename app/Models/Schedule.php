@@ -18,9 +18,9 @@ class Schedule extends Model
     protected $fillable = ['date', 'home_team', 'away_team', 'time'];
 
     public function homeTeam () {
-        return $this->belongsTo('App\Models\Team', 'ref_home_team_id');
+        return $this->belongsTo('App\Models\Team', 'home_team_id');
     }
     public function awayTeam () {
-        return $this->belongsTo('App\Models\Team', 'ref_away_team_id');
+        return $this->belongsTo('App\Models\Team', 'away_team_id');
     }
 }

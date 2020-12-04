@@ -12,16 +12,25 @@ class Player extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
-    protected $fillable = ['first_name', 'last_name', 'ref_user_id', 'ref_team_id'];
-    public function user () {
-        return $this->belongsTo('App\Models\User', 'ref_user_id');
+    protected $fillable = ['first_name', 'last_name', 'user_id', 'team_id'];
+    
+    protected $with=['myUser'];
+
+    public function myUser () {
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-    public function team () {
-        return $this->belongsTo('App\Models\Team', 'ref_team_id');
-    }   
-
-
+    // public function team () {
+    //     return $this->belongsTo('App\Models\Team', 'team_id');
+    // }   
+    
+    // public function homeSchedule () {
+    //     return $this->hasManyThrough('App\Models\Schedule', 'App\Models\Team', '', 'id', 'id');
+    // }   
+    
+    // public function awaySchedule () {
+    //     return $this->hasManyThrough('App\Models\Schedule', 'App\Models\Team', '', 'id', 'id');
+    // }   
 
 
 }

@@ -36,6 +36,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public $timestamps = true;
 
     public function players () {
-        return $this->hasMany('App\Models\Player', 'ref_user_id');
+        return $this->hasMany('App\Models\Player', 'user_id');
     }
 }

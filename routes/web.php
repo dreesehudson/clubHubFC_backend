@@ -31,6 +31,10 @@ $router->put('/editTeam/{id}', 'TeamController@update');
 $router->put('/editSchedule/{id}', 'ScheduleController@update');
 $router->get('/getPlayer/{id}', 'PlayerController@show');
 $router->get('/getPlayerGames/{id}', 'PlayerController@getPlayerGames');
+$router->delete('/deleteUser/{id}', 'UsersController@destroy');
+$router->delete('/deletePlayer/{id}', 'PlayerController@destroy');
+$router->delete('/deleteTeam/{id}', 'TeamController@destroy');
+$router->delete('/deleteSchedule/{id}', 'ScheduleController@destroy');
 
 use Illuminate\Http\Request;
 
@@ -44,13 +48,7 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
         return $user->toArray();
     });
     $router->post('/createTeam', 'TeamController@create');
-    
-    //Next
-    
-    $router->delete('/deleteUser/{id}', 'UsersController@destroy');
-    $router->delete('/deletePlayer/{id}', 'PlayerController@destroy');
-    $router->delete('/deleteTeam/{id}', 'TeamController@destroy');
-    $router->delete('/deleteSchedule/{id}', 'ScheduleController@destroy');
+        
 });
 
 

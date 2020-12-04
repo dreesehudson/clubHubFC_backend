@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PlayersTable extends Migration
+class Players extends Migration
 {
     /**
      * Run the migrations.
@@ -17,19 +17,16 @@ class PlayersTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-                  //next iteration breaks will make multiple leagues to distinguish age and gender
-                  //->integer('age')
-                  //->string('gender')
-            $table->unsignedBigInteger('ref_team_id');
-            $table->unsignedBigInteger('ref_user_id');
+            $table->unsignedBigInteger('team_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
-            $table->foreign('ref_team_id')
+            $table->foreign('team_id')
                   ->references('id')
                   ->on('teams')
                   ->onDelete('cascade');
 
-            $table->foreign('ref_user_id')
+            $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
