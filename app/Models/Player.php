@@ -14,14 +14,14 @@ class Player extends Model
     public $timestamps = true;
     protected $fillable = ['first_name', 'last_name', 'user_id', 'team_id'];
     
-    protected $with=['myUser', 'myTeams'];
+    //protected $with=['myUser'];
 
     public function myUser () {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-    public function myTeams () {
-        return $this->belongsTo('App\Models\Team');
+    public function myTeam () {
+        return $this->belongsTo('App\Models\Team', 'team_id');
     }   
 
 }
