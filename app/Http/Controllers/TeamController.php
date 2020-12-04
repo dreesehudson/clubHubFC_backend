@@ -46,9 +46,9 @@ class TeamController extends Controller
      * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Team $id)
+    public function update($id)
     {
-        $team = Team::find('$id');
+        $team = Team::find($id);
         $team-> name = request('name');
         $team-> color = request('color');
         $team-> practice_night = request('practice_night');
@@ -64,8 +64,8 @@ class TeamController extends Controller
      * @param  \App\Team  $team
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Team $team)
+    public function destroy($id)
     {
-        Team::find($team->id)->delete();
+        Team::find($id)->delete();
     }
 }

@@ -26,6 +26,14 @@ class UsersController extends Controller
         //$data['user_data'] = $userData = User::with("relationshipA");
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
     }  
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+        $request->user()->token()->delete();
+        
+        $response = 'You have been successfully logged out!';
+        return response($response, 200);
+    }  
 
         /**
      * Display a listing of the resource.
@@ -67,26 +75,15 @@ class UsersController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function showByEmail($email)
-    {
-        return (User::find($email));
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $user = User::find('$id');
+        $user = User::find($id);
         $user-> name = request('name');
         $user-> email = request('email');
         $user-> password = request('password');
@@ -102,8 +99,8 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        User::find($user->id)->delete();
+        User::find($id)->delete();
     }
 }

@@ -21,9 +21,12 @@ class ScheduleController extends Controller
      */
     public function create(Request $request)
     {
-        $Schedule = new Schedule;
-        $Schedule-> name = request('name');
-        $Schedule->save();
+        $schedule = new Schedule;
+        $schedule-> date = request('date');
+        $schedule-> ref_home_team_id = request('ref_home_team_id');
+        $schedule-> ref_away_team_id = request('ref_away_team_id');
+        $schedule-> time = request('time');
+        $schedule->save();
     }
 
     /**
@@ -44,14 +47,14 @@ class ScheduleController extends Controller
      * @param  \App\Schedule  $Schedule
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Schedule $id)
+    public function update($id)
     {
-        $schedule = Schedule::find('$id');
-        $schedule-> name = request('name');
-
-
-        $schedule->save();
-
+        $schedule = Schedule::updateOrCreate(
+            ['id'=> request('id')],
+            ['date' => request('date'),        
+            'ref_home_team_id' => request('ref_home_team_id'),
+            'ref_away_team_id' => request('ref_away_team_id')]
+        );
 
     }
 
@@ -61,8 +64,8 @@ class ScheduleController extends Controller
      * @param  \App\Schedule  $Schedule
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Schedule $schedule)
+    public function destroy($id)
     {
-        Schedule::find($schedule->id)->delete();
+        Schedule::find($id)->delete();
     }
 }

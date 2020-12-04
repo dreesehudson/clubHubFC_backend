@@ -48,14 +48,19 @@ class PlayerController extends Controller
      * @param  \App\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $id)
+    public function update(Request $request, $id)
     {
-        $player = Player::find('$id');
-        $player-> name = request('name');
-        $player-> ref_team_id = request('ref_team_id');
-        $player-> ref_user_id = require('ref_user_id');
-        $player->save();
+        $player = Player::updateOrCreate(
+            ['id'=> request('id')],
+            ['first_name' => request('first_name'),
+            'last_name' => request('last_name'),        
+            'ref_team_id' => request('ref_team_id'),
+            'ref_user_id' => request('ref_user_id')]
+        );
 
+        
+
+        
     }
 
     /**

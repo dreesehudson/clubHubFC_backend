@@ -12,7 +12,7 @@ class Player extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
-
+    protected $fillable = ['first_name', 'last_name', 'ref_user_id', 'ref_team_id'];
     public function user () {
         return $this->belongsTo('App\Models\User', 'ref_user_id');
     }
@@ -20,4 +20,8 @@ class Player extends Model
     public function team () {
         return $this->belongsTo('App\Models\Team', 'ref_team_id');
     }   
+
+
+
+
 }
