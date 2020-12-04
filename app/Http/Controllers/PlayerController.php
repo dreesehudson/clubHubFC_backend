@@ -38,7 +38,6 @@ class PlayerController extends Controller
     public function show(Player $id)
     {
         return (Player::find($id));
-
     }
 
     /**
@@ -57,10 +56,6 @@ class PlayerController extends Controller
             'ref_team_id' => request('ref_team_id'),
             'ref_user_id' => request('ref_user_id')]
         );
-
-        
-
-        
     }
 
     /**
@@ -73,4 +68,24 @@ class PlayerController extends Controller
     {
         Player::find($id)->delete();
     }
+
+    public function getPlayerGames($player_id){
+
+        $player = Player::table('players')
+                            ->whereIn('id', $player_id)
+                            ->get();
+            dd($player);
+    }
+
+    // playerList
+    // teamList
+    // gameList
+
+    // get my games given player id
+    //     use player id to get team id
+    //         use team id to get home games
+    //         use team id to get away games
+    //         merge two game arrays
+    //         sort by date
+
 }

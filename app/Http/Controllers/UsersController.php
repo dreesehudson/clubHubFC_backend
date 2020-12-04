@@ -81,16 +81,13 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($user)
     {
-        $user = User::find($id);
-        $user-> name = request('name');
-        $user-> email = request('email');
-        $user-> password = request('password');
-        $user-> last_logged_in = request('last_logged_in');
-        $user-> email_verified_at = request('email_verified_at');
-
-        $user->save();
+        $user = User::updateOrCreate(
+            ['id' => request('id')],
+            ['name' => request('name'),
+            'email' => request('name')]
+        );
     }
 
     /**

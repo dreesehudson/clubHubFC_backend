@@ -21,13 +21,16 @@ $router->get('/', function () use ($router) {
 $router->post('/register','UsersController@register');
 $router->post('/User', 'UsersController@create');
 $router->get('/getTeams', 'TeamController@index');
+$router->get('/getTeam/{id}', 'TeamController@show');
 $router->get('/getUsers', 'UsersController@index');
 $router->get('/getPlayers', 'PlayerController@index');
 $router->get('/getSchedules', 'ScheduleController@index');
 $router->put('/editPlayer/{id}', 'PlayerController@update');
-$router->put('/editUsers/{id}', 'UsersController@update');
+$router->put('/editUser/{id}', 'UsersController@update');
 $router->put('/editTeam/{id}', 'TeamController@update');
 $router->put('/editSchedule/{id}', 'ScheduleController@update');
+$router->get('/getPlayer/{id}', 'PlayerController@show');
+$router->get('/getPlayerGames/{id}', 'PlayerController@getPlayerGames');
 
 use Illuminate\Http\Request;
 
@@ -36,7 +39,6 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
     $router->post('/logout', 'UserController@logout');
     //Working
     $router->post('/PlayerRegistration', 'PlayerController@create');
-    $router->get('/getPlayer/{id}', 'PlayerController@show');
     $router->get('/api/user', function(Request $request) {
         $user = $request->user();
         return $user->toArray();
@@ -48,7 +50,7 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
     $router->delete('/deleteUser/{id}', 'UsersController@destroy');
     $router->delete('/deletePlayer/{id}', 'PlayerController@destroy');
     $router->delete('/deleteTeam/{id}', 'TeamController@destroy');
-    $router->delete('/deleteMatch/{id}', 'ScheduleController@destroy');
+    $router->delete('/deleteSchedule/{id}', 'ScheduleController@destroy');
 });
 
 

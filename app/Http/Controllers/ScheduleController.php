@@ -53,7 +53,8 @@ class ScheduleController extends Controller
             ['id'=> request('id')],
             ['date' => request('date'),        
             'ref_home_team_id' => request('ref_home_team_id'),
-            'ref_away_team_id' => request('ref_away_team_id')]
+            'ref_away_team_id' => request('ref_away_team_id'),
+            'time' =>request('time')]
         );
 
     }
