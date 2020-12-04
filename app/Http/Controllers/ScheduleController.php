@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Schedule;
+use App\Models\Scheduler;
 class ScheduleController extends Controller
 {
         /**
@@ -21,7 +21,7 @@ class ScheduleController extends Controller
      */
     public function create(Request $request)
     {
-        $schedule = new Schedule;
+        $schedule = new Scheduler;
         $schedule-> date = request('date');
         $schedule-> home_team_id = request('home_team_id');
         $schedule-> away_team_id = request('away_team_id');
@@ -32,12 +32,12 @@ class ScheduleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Schedule  $Schedule
+     * @param  \App\Scheduler  $Schedule
      * @return \Illuminate\Http\Response
      */
-    public function show(Schedule $id)
+    public function show($id)
     {
-        return Schedule::find($id);
+        return Scheduler::find($id);
     }
 
     /**
@@ -49,7 +49,7 @@ class ScheduleController extends Controller
      */
     public function update($id)
     {
-        $schedule = Schedule::updateOrCreate(
+        $schedule = Scheduler::updateOrCreate(
             ['id'=> request('id')],
             ['date' => request('date'),        
             'home_team_id' => request('home_team_id'),

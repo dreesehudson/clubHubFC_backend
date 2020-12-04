@@ -14,23 +14,14 @@ class Player extends Model
     public $timestamps = true;
     protected $fillable = ['first_name', 'last_name', 'user_id', 'team_id'];
     
-    protected $with=['myUser'];
+    protected $with=['myUser', 'myTeams'];
 
     public function myUser () {
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo('App\Models\User');
     }
 
-    // public function team () {
-    //     return $this->belongsTo('App\Models\Team', 'team_id');
-    // }   
-    
-    // public function homeSchedule () {
-    //     return $this->hasManyThrough('App\Models\Schedule', 'App\Models\Team', '', 'id', 'id');
-    // }   
-    
-    // public function awaySchedule () {
-    //     return $this->hasManyThrough('App\Models\Schedule', 'App\Models\Team', '', 'id', 'id');
-    // }   
-
+    public function myTeams () {
+        return $this->belongsTo('App\Models\Team');
+    }   
 
 }
