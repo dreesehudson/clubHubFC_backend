@@ -11,7 +11,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return Schedule::all();
+        return Scheduler::all();
     }
 
     /**
@@ -33,6 +33,7 @@ class ScheduleController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Scheduler  $Schedule
+
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -67,6 +68,6 @@ class ScheduleController extends Controller
      */
     public function destroy($id)
     {
-        Schedule::find($id)->delete();
+        Scheduler::find($id)->delete();
     }
 }

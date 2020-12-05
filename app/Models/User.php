@@ -32,6 +32,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $with = ["players"];
 
     public function players () {
+
         return $this->hasMany('App\Models\Player');
     }
 }

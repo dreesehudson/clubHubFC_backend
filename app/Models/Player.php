@@ -16,12 +16,11 @@ class Player extends Model
     
     //protected $with=['myUser'];
 
-    public function myUser () {
-        return $this->belongsTo('App\Models\User', 'user_id');
-    }
+    // public function myUser () {
+    //     return $this->belongsTo('App\Models\User', 'user_id');
+    // }
 
     public function myTeam () {
         return $this->belongsTo('App\Models\Team', 'team_id');
     }   
-
 }

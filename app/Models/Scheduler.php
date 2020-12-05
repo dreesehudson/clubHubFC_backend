@@ -17,6 +17,7 @@ class Scheduler extends Model
     public $timestamps = true;
     //protected $fillable = ['date', 'home_team', 'away_team', 'time'];
 
+
     public function homeTeam () {
         return $this->belongsTo('App\Models\Team', 'home_team_id');
     }
