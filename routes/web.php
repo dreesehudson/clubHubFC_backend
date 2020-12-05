@@ -50,6 +50,7 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
         return $user->toArray();
     });
     $router->post('/createTeam', 'TeamController@create');
+    $router->post('/createSchedule', 'ScheduleController@create');
         
 });
 

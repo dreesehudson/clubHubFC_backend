@@ -15,10 +15,10 @@ class Schedules extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('type')->default('Match');
             $table->date('date');
             $table->unsignedBigInteger('home_team_id');
-            $table->unsignedBigInteger('away_team_id')->nullable();
+            $table->unsignedBigInteger('away_team_id');
             $table->string('time');
             $table->timestamps();
 
