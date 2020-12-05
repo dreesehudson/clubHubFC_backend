@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -28,14 +29,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
     ];
 
-    protected $with = ['userPlayers'];
+    protected $with = ["players"];
 
-    // protected $table = 'users';
-    // protected $primaryKey = 'id';
-    // public $incrementing = true;
-    // public $timestamps = true;
+    public function players () {
 
-    public function userPlayers () {
         return $this->hasMany('App\Models\Player');
     }
 }

@@ -32,7 +32,8 @@ class ScheduleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Schedule $Schedule
+     * @param  \App\Scheduler  $Schedule
+
      * @return \Illuminate\Http\Response
      */
     public function show($id)
