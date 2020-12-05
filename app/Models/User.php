@@ -28,14 +28,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
     ];
 
-    protected $with = ['players'];
+    protected $with = ['userPlayers'];
 
-    protected $table = 'users';
-    protected $primaryKey = 'id';
-    public $incrementing = true;
-    public $timestamps = true;
+    // protected $table = 'users';
+    // protected $primaryKey = 'id';
+    // public $incrementing = true;
+    // public $timestamps = true;
 
-    public function players () {
-        return $this->hasMany('App\Models\Player', 'user_id');
+    public function userPlayers () {
+        return $this->hasMany('App\Models\Player');
     }
 }

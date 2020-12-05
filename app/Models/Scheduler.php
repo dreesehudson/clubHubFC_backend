@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Schedule extends Model
+class Scheduler extends Model
 {
     use HasFactory;
 
-    protected $with = ['homeTeam', 'awayTeam'];
+    //protected $with = ['homeTeam', 'awayTeam'];
 
-    protected $table = 'schedule';
+    protected $table = 'schedules';
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;

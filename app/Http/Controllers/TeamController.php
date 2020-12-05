@@ -11,7 +11,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        return (Team::all());
+        return Team::all();
     }
 
     /**
@@ -67,5 +67,19 @@ class TeamController extends Controller
     public function destroy($id)
     {
         Team::find($id)->delete();
+    }
+
+    function getHomeGames($team_id)
+    {
+        $team = Team::find($team_id);
+        $games = $team -> homeGames();
+        return $games -> toArray();
+    }
+    
+    function getAwayGames($team_id)
+    {
+        $team = Team::find($team_id);
+        $games = $team -> awayGames();
+        return $games -> toArray();
     }
 }
