@@ -20,20 +20,22 @@ $router->get('/', function () use ($router) {
 //create each object type
 $router->post('/register','UsersController@register');
 $router->post('/User', 'UsersController@create');
-$router->get('/getTeams', 'TeamController@index');
-$router->get('/getTeam/{id}', 'TeamController@show');
 $router->get('/getUsers', 'UsersController@index');
-$router->get('/getPlayers', 'PlayerController@index');
-$router->get('/getSchedules', 'ScheduleController@index');
-$router->put('/editPlayer/{id}', 'PlayerController@update');
 $router->put('/editUser/{id}', 'UsersController@update');
-$router->put('/editTeam/{id}', 'TeamController@update');
-$router->put('/editSchedule/{id}', 'ScheduleController@update');
-$router->get('/getPlayer/{id}', 'PlayerController@show');
-$router->get('/getPlayerGames/{id}', 'PlayerController@getPlayerGames');
 $router->delete('/deleteUser/{id}', 'UsersController@destroy');
+
+$router->get('/getPlayers', 'PlayerController@index');
+$router->get('/getPlayer/{id}', 'PlayerController@show');
+$router->put('/editPlayer/{id}', 'PlayerController@update');
 $router->delete('/deletePlayer/{id}', 'PlayerController@destroy');
+
+$router->get('/getTeams', 'TeamController@index');
+//$router->get('/getTeam/{id}', 'TeamController@show');
+$router->put('/editTeam/{id}', 'TeamController@update');
 $router->delete('/deleteTeam/{id}', 'TeamController@destroy');
+
+$router->get('/getSchedules', 'ScheduleController@index');
+$router->put('/editSchedule/{id}', 'ScheduleController@update');
 $router->delete('/deleteSchedule/{id}', 'ScheduleController@destroy');
 
 use Illuminate\Http\Request;
