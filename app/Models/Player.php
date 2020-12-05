@@ -14,7 +14,7 @@ class Player extends Model
     public $timestamps = true;
     protected $fillable = ['first_name', 'last_name', 'user_id', 'team_id'];
     
-    //protected $with=['myUser'];
+    //protected $with=['myTeam'];
 
     // public function myUser () {
     //     return $this->belongsTo('App\Models\User', 'user_id');

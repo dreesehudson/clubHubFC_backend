@@ -22,4 +22,5 @@ class Team extends Model
     public function teamPlayers () {
         return $this->hasMany('App\Models\Player', 'team_id');
     }
+    
 }
