@@ -81,12 +81,12 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update($user)
+    public function update($id)
     {
         $user = User::updateOrCreate(
             ['id' => request('id')],
             ['name' => request('name'),
-            'email' => request('name')]
+            'email' => request('email')]
         );
     }
 

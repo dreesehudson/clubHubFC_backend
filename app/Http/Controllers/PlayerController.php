@@ -11,7 +11,8 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        return Player::with(['team', 'user'])->get();
+       // return Player::with(['team', 'user'])->get();
+        return Player::select('players.id', 'first_name', 'last_name', 'team_id', 'name', 'color', 'practice_night')->join('teams', 'team_id', '=', 'teams.id')->get();
     }
 
     /**
@@ -35,9 +36,12 @@ class PlayerController extends Controller
      * @param  \App\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function show(Player $id)
+    public function show($id)
     {
-        return (Player::find($id));
+        return Player::where('players.id', $id)
+            ->select('players.id', 'first_name', 'last_name', 'team_id', 'name', 'color', 'practice_night')
+            ->join('teams', 'team_id', '=', 'teams.id')
+            ->get();
     }
 
     /**
@@ -47,7 +51,7 @@ class PlayerController extends Controller
      * @param  \App\Player  $player
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $player = Player::updateOrCreate(
             ['id'=> request('id')],
@@ -67,12 +71,6 @@ class PlayerController extends Controller
     public function destroy($id)
     {
         Player::find($id)->delete();
-    }
-
-    public function getPlayerGames($player_id){
-
-        $player = Player::where('id', $player_id)->get();
-            //dd($player);
     }
 
     // playerList
