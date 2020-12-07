@@ -30,7 +30,7 @@ $router->put('/editPlayer/{id}', 'PlayerController@update');
 $router->delete('/deletePlayer/{id}', 'PlayerController@destroy');
 
 $router->get('/getTeams', 'TeamController@index');
-//$router->get('/getTeam/{id}', 'TeamController@show');
+$router->get('/getTeam/{id}', 'TeamController@show');
 $router->put('/editTeam/{id}', 'TeamController@update');
 $router->delete('/deleteTeam/{id}', 'TeamController@destroy');
 

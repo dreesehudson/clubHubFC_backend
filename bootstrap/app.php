@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -126,11 +126,25 @@ $app->register(App\Providers\EventServiceProvider::class);
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__.'/../routes/web.php';
+    require __DIR__ . '/../routes/web.php';
 });
 
 $app->middleware([
     App\Http\Middleware\CorsMiddleware::class
- ]);
+]);
+
+# [START] Add the following block to `bootstrap/app.php`
+/*
+|--------------------------------------------------------------------------
+| Set Storage Path
+|--------------------------------------------------------------------------
+|
+| This script allows you to override the default storage location used by
+| the  application.  You may set the APP_STORAGE environment variable
+| in your .env file,  if not set the default location will be used
+|
+*/
+$app->useStoragePath(env('APP_STORAGE', base_path() . '/storage'));
+# [END]
 
 return $app;

@@ -57,8 +57,7 @@ class PlayerController extends Controller
             ['id'=> request('id')],
             ['first_name' => request('first_name'),
             'last_name' => request('last_name'),        
-            'team_id' => request('team_id'),
-            'user_id' => request('user_id')]
+            'team_id' => request('team_id')]
         );
     }
 

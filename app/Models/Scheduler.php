@@ -15,7 +15,7 @@ class Scheduler extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
-    //protected $fillable = ['date', 'home_team', 'away_team', 'time'];
+    protected $fillable = ['date', 'home_team', 'away_team', 'time'];
 
 
     public function homeTeam () {
