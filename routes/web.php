@@ -21,6 +21,7 @@ $router->get('/', function () use ($router) {
 $router->post('/register','UsersController@register');
 $router->post('/User', 'UsersController@create');
 $router->get('/getUsers', 'UsersController@index');
+$router->get('/getUser/{id}', 'UsersController@show');
 $router->put('/editUser/{id}', 'UsersController@update');
 $router->delete('/deleteUser/{id}', 'UsersController@destroy');
 
@@ -35,6 +36,7 @@ $router->put('/editTeam/{id}', 'TeamController@update');
 $router->delete('/deleteTeam/{id}', 'TeamController@destroy');
 
 $router->get('/getSchedules', 'ScheduleController@index');
+$router->get('/getSchedule/{id}', 'ScheduleController@show');
 $router->put('/editSchedule/{id}', 'ScheduleController@update');
 $router->delete('/deleteSchedule/{id}', 'ScheduleController@destroy');
 
