@@ -4,4 +4,6 @@ Homestead.json
 Homestead.yaml
 .env
 .phpunit.result.cache
-.app.yaml
+app.yaml
+.gcloudignore
+cloud_sql_proxy
